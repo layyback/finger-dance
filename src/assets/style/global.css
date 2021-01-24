@@ -1,0 +1,12 @@
+*,
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+.col-3 {
+  width: 25%;
+}
+.col-9 {
+  width: 75%;
+}
