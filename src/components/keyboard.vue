@@ -21,7 +21,7 @@ export default {
 .keyboard {
   width: 722px;
   margin: 80px auto;
-  padding: 20px;
+  padding: 12px;
   background: @keyboard-bg-color;
   border-radius: 10px;
   display: flex;

@@ -1,5 +1,11 @@
 <template>
-  <div class="key" :style="{ width: keyWidth + 'px' }">
+  <div
+    class="key"
+    :style="{
+      'min-width': keyWidth + 'px',
+      flex: type === 'Fill' ? 1 : 'none',
+    }"
+  >
     <div class="multiple" v-if="subName">
       <span v-html="subName"></span>
       <span v-html="primaryName"></span>
@@ -39,8 +45,11 @@ export default {
         case "Caps Lock":
           keyWidth = 82;
           break;
-        case "Backspace":
-          keyWidth = 94;
+        case "Shift":
+          keyWidth = 110;
+          break;
+        case "Function":
+          keyWidth = 80;
           break;
         default:
           break;
