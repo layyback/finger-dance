@@ -1,9 +1,9 @@
 <template>
   <div
-    class="key"
+    :class="['key', { active: isCurrentKey($store.state.currentKey) }]"
     :style="{
       'min-width': keyWidth + 'px',
-      flex: type === 'Fill' ? 1 : 'none',
+      flex: type === 'Fill' ? 1 : 'none'
     }"
   >
     <div class="multiple" v-if="subName">
@@ -19,16 +19,16 @@ export default {
   props: {
     type: {
       type: String,
-      default: "",
+      default: ""
     },
     primaryName: {
       type: String,
-      default: "",
+      default: ""
     },
     subName: {
       type: String,
-      defualt: "",
-    },
+      defualt: ""
+    }
   },
   computed: {
     keyWidth() {
@@ -55,11 +55,14 @@ export default {
           break;
       }
       return keyWidth;
-    },
+    }
   },
-  data() {
-    return {};
-  },
+  methods: {
+    isCurrentKey(key) {
+      if (key === null) return false;
+      return key.toLowerCase() === this.primaryName.toLowerCase();
+    }
+  }
 };
 </script>
 
@@ -78,6 +81,9 @@ export default {
     span {
       line-height: 1em;
     }
+  }
+  &.active {
+    opacity: 0.4;
   }
 }
 </style>

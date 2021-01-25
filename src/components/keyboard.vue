@@ -14,6 +14,20 @@ export default {
       list: mock
     };
   },
+  mounted() {
+    this.keyboardInit();
+  },
+  methods: {
+    keyboardInit() {
+      document.addEventListener("keydown", e => {
+        e.preventDefault();
+        this.$store.commit("onkeydown", e.key);
+      });
+      document.addEventListener("keyup", () => {
+        this.$store.commit("onkeyup");
+      });
+    }
+  }
 };
 </script>
 

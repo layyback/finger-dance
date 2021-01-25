@@ -31,7 +31,7 @@ const keys = [
   { id: 4, type: "Letter", primaryName: "]", subName: "}" },
   { id: 4, type: "Fill", primaryName: "\\", subName: "|" },
   // 第三行
-  { id: 4, type: "Caps Lock", primaryName: "Caps Lock", subName: "" },
+  { id: 4, type: "Caps Lock", primaryName: "CapsLock", subName: "" },
   { id: 4, type: "Letter", primaryName: "A", subName: "" },
   { id: 4, type: "Letter", primaryName: "S", subName: "" },
   { id: 4, type: "Letter", primaryName: "D", subName: "" },
@@ -42,7 +42,7 @@ const keys = [
   { id: 4, type: "Letter", primaryName: "K", subName: "" },
   { id: 4, type: "Letter", primaryName: "L", subName: "" },
   { id: 4, type: "Letter", primaryName: ";", subName: ":" },
-  { id: 4, type: "Letter", primaryName: ",", subName: "\"" },
+  { id: 4, type: "Letter", primaryName: "'", subName: '"' },
   { id: 4, type: "Fill", primaryName: "Enter", subName: "" },
   // 第四行
   { id: 4, type: "Shift", primaryName: "Shift", subName: "" },
@@ -60,10 +60,9 @@ const keys = [
   // 第五行
   { id: 4, type: "Function", primaryName: "Ctrl", subName: "" },
   { id: 4, type: "Letter", primaryName: "Alt", subName: "" },
-  // { id: 4, type: "Function", primaryName: "Command", subName: "" },
-  { id: 4, type: "Fill", primaryName: "", subName: "" },
+  { id: 4, type: "Fill", primaryName: " ", subName: "" },
   { id: 4, type: "Letter", primaryName: "Alt", subName: "" },
-  { id: 4, type: "Function", primaryName: "Ctrl", subName: "" },
+  { id: 4, type: "Function", primaryName: "Ctrl", subName: "" }
 ];
 
 export default keys;
