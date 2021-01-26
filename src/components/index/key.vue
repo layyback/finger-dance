@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['key', { active: isCurrentKey($store.state.currentKey) }]"
+    :class="['key', { active: iscurrentLetter($store.state.currentLetter) }]"
     :style="{
       'min-width': keyWidth + 'px',
       flex: type === 'Fill' ? 1 : 'none'
@@ -58,7 +58,7 @@ export default {
     }
   },
   methods: {
-    isCurrentKey(key) {
+    iscurrentLetter(key) {
       if (key === null) return false;
       return key.toLowerCase() === this.primaryName.toLowerCase();
     }

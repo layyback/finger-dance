@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import key from "@/components/key.vue";
+import key from "@/components/index/key.vue";
 import mock from "@/assets/js/mock";
 export default {
   components: { key },

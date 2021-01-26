@@ -5,14 +5,16 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    currentKey: ""
+    currentLetter: "", // 当前按下按键
+    practiceLetters: "ENITRL", // 预设练习按键组
+    keyLetter: "E" // 预设重点练习按键
   },
   mutations: {
     onkeydown(state, val) {
-      state.currentKey = val;
+      state.currentLetter = val;
     },
     onkeyup(state) {
-      state.currentKey = null;
+      state.currentLetter = null;
     }
   },
   actions: {},
