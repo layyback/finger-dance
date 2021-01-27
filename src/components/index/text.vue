@@ -11,35 +11,41 @@
 
 <script>
 import CreateText from "@/assets/js/createText";
+import { mapState } from "vuex";
 export default {
   data() {
     return {
-      length: 2,
+      length: 20,
       currentIndex: 0,
-      text: "",
+      text: ""
     };
   },
   computed: {
-    currentLetter() {
-      return this.$store.state.currentLetter;
-    },
+    ...mapState(["currentLetter", "practiceLetters", "keyLetter"])
   },
   watch: {
     currentLetter(val) {
       if (val === null) return;
       const currentLetter = this.text[this.currentIndex];
-      if (val.toLowerCase() === currentLetter.toLowerCase()) {
+      if (val === currentLetter.toLowerCase()) {
         this.next();
       }
     },
+    practiceLetters() {
+      this.createTextList();
+    },
+    keyLetter() {
+      this.createTextList();
+    }
   },
   created() {
     this.createTextList();
   },
   methods: {
     createTextList() {
+      const textModel = new CreateText(this.practiceLetters, this.keyLetter);
       const arr = new Array(this.length).fill(0);
-      const res = arr.map(() => CreateText.create());
+      const res = arr.map(() => textModel.create());
       this.text = res.join(" ").toLowerCase();
     },
     next() {
@@ -48,14 +54,14 @@ export default {
         this.currentIndex = 0;
         this.createTextList();
       }
-    },
+    }
   },
   filters: {
     formatLetter(val) {
       if (!val) return "";
       return val === " " ? "␣" : val;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -74,13 +80,21 @@ export default {
     color: #000;
   }
 }
+@font-face {
+  font-family: "Ubuntu Mono";
+  src: url("../../assets/font/UbuntuMono-RI.ttf");
+}
 
 .text {
+  width: 700px;
+  margin: 80px auto;
+  text-align: left;
   span {
     font-family: Ubuntu Mono, Lucida Console, monospace;
     display: inline-block;
     text-align: center;
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: 500;
     min-width: 0.5em;
     &.active {
       animation: cursor 0.6s ease infinite;

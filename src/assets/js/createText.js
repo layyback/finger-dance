@@ -34,4 +34,4 @@ class CreateText {
   }
 }
 
-export default new CreateText();
+export default CreateText;

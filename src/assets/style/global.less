@@ -1,8 +1,26 @@
-*,
-html,
-body {
+* {
   padding: 0;
   margin: 0;
+  outline: none;
+}
+html,
+body {
+  min-height: 100vh;
+  background: rgba(203, 242, 144, 0.2);
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+}
+
+body {
+  padding: 100px 0;
+  box-sizing: border-box;
+}
+.col-2 {
+  width: 2/12 * 100%;
 }
 .col-3 {
   width: 25%;
@@ -10,5 +28,9 @@ body {
 .col-9 {
   width: 75%;
 }
+.col-10 {
+  width: 10/12 * 100%;
+}
 
 @keyboard-bg-color: #dfd9d9;
+@border-style: 1px solid rgba(0, 10, 20, 0.1);
