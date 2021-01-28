@@ -1,27 +1,50 @@
 <template>
   <div class="settings-container">
-    <label for="practiceLetters">预设练习键</label>
-    <span
-      :class="[
-        'letter',
-        { practiceLetter: isPracticeLetter(item), keyLetter: isKeyLetter(item) }
-      ]"
-      v-for="(item, index) in allLetters"
-      :key="index"
-      @click="setKeyLetter(item, index)"
-      >{{ item }}</span
-    >
-    <el-slider
-      :min="min"
-      :max="allLetters.length"
-      :show-tooltip="false"
-      v-model="practiceLetterRange"
-      @input="changePracticeLetters"
-    ></el-slider>
+    <div class="setting-item">
+      <label for="practiceLetters">预设练习键</label>
+      <span
+        :class="[
+          'letter',
+          {
+            practiceLetter: isPracticeLetter(item),
+            keyLetter: isKeyLetter(item)
+          }
+        ]"
+        v-for="(item, index) in allLetters"
+        :key="index"
+        @click="setKeyLetter(item, index)"
+        >{{ item }}</span
+      >
+      <el-slider
+        :min="min"
+        :max="allLetters.length"
+        :show-tooltip="false"
+        v-model="practiceLetterRange"
+        @input="changePracticeLetters"
+      ></el-slider>
+    </div>
+    <div class="setting-item">
+      <label for="showFingers">显示指位</label>
+      <el-switch
+        :value="showFingers"
+        active-color="#13ce66"
+        @change="changeFingersShow"
+      >
+      </el-switch>
+    </div>
+    <div class="setting-item">
+      <label for="keyboardColor">键盘主题色</label>
+      <el-color-picker
+        @change="changeKeyboardColor"
+        :value="keyboardColor"
+        show-alpha
+        size="mini"
+      ></el-color-picker>
+    </div>
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 export default {
   data() {
     return {
@@ -30,9 +53,17 @@ export default {
     };
   },
   computed: {
-    ...mapState(["allLetters", "practiceLetters", "keyLetter", "minRange"])
+    ...mapState([
+      "allLetters",
+      "showFingers",
+      "keyboardColor",
+      "practiceLetters",
+      "keyLetter",
+      "minRange"
+    ])
   },
   methods: {
+    ...mapMutations(["changeFingersShow", "changeKeyboardColor"]),
     isKeyLetter(val) {
       if (!val) return false;
       return val === this.keyLetter;
@@ -70,6 +101,11 @@ export default {
 .settings-container {
   width: fit-content;
   margin: 0 auto;
+  text-align: left;
+  label {
+    display: inline-block;
+    min-width: 80px;
+  }
   .letter {
     display: inline-block;
     width: 1em;
@@ -78,6 +114,7 @@ export default {
     border: 1px solid @default-color;
     color: @default-color;
     margin-left: 0.5em;
+    text-align: center;
     &.practiceLetter {
       border-color: @practice-color;
       color: @practice-color;
@@ -89,6 +126,14 @@ export default {
   }
   .el-slider {
     margin-left: 84px;
+  }
+  .el-switch {
+    vertical-align: text-top;
+    margin-left: 0.5em;
+  }
+  .el-color-picker {
+    vertical-align: bottom;
+    margin-left: 0.5em;
   }
 }
 </style>

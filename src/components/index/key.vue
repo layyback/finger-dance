@@ -3,7 +3,8 @@
     :class="['key', { active: iscurrentLetter($store.state.currentLetter) }]"
     :style="{
       'min-width': keyWidth + 'px',
-      flex: type === 'Fill' ? 1 : 'none'
+      flex: type === 'Fill' ? 1 : 'none',
+      background: keyboardColor
     }"
   >
     <div class="multiple" v-if="subName">
@@ -15,6 +16,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   props: {
     type: {
@@ -31,6 +33,7 @@ export default {
     }
   },
   computed: {
+    ...mapState(["keyboardColor"]),
     keyWidth() {
       let keyWidth = 44;
       const keyType = this.type;
@@ -70,7 +73,7 @@ export default {
 .key {
   height: 44px;
   line-height: 44px;
-  background: skyblue;
+  // background: skyblue;
   border-radius: 4px;
   margin: 2px;
   .multiple {

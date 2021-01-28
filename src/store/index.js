@@ -9,7 +9,9 @@ export default new Vuex.Store({
     currentLetter: "", // 当前按下按键
     practiceLetters: "ENITRL", // 预设练习按键组
     minRange: 4, // 预设按键组最小长度
-    keyLetter: "E" // 预设重点练习按键
+    keyLetter: "E", // 预设重点练习按键
+    showFingers: true, // 是否显示指位
+    keyboardColor: "#87CEEB" // 键盘颜色
   },
   mutations: {
     onkeydown(state, val) {
@@ -23,6 +25,12 @@ export default new Vuex.Store({
     },
     setKeyLetter(state, val) {
       state.keyLetter = val;
+    },
+    changeFingersShow(state, val) {
+      state.showFingers = val;
+    },
+    changeKeyboardColor(state, val) {
+      state.keyboardColor = val;
     }
   },
   actions: {},

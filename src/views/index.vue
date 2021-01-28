@@ -5,7 +5,7 @@
       <text-component />
       <div class="keyboard-container">
         <keyboard />
-        <fingers class="fingers" />
+        <fingers v-if="showFingers" class="fingers" />
       </div>
     </div>
     <div class="col-2">
@@ -20,9 +20,13 @@ import textComponent from "@/components/index/text.vue";
 import keyboard from "@/components/index/keyboard.vue";
 import fingers from "@/components/index/fingers.vue";
 import menuComponent from "@/components/common/menu.vue";
+import { mapState } from "vuex";
 export default {
   name: "Home",
-  components: { keyboard, textComponent, fingers, settingsInfo, menuComponent }
+  components: { keyboard, textComponent, fingers, settingsInfo, menuComponent },
+  computed: {
+    ...mapState(["showFingers"])
+  }
 };
 </script>
 
