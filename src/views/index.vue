@@ -2,6 +2,7 @@
   <div class="index">
     <div class="col-10">
       <settings-info />
+      <speed />
       <text-component />
       <div class="keyboard-container">
         <keyboard />
@@ -19,11 +20,19 @@ import settingsInfo from "@/components/common/settings.vue";
 import textComponent from "@/components/index/text.vue";
 import keyboard from "@/components/index/keyboard.vue";
 import fingers from "@/components/index/fingers.vue";
+import speed from "@/components/index/speed.vue";
 import menuComponent from "@/components/common/menu.vue";
 import { mapState } from "vuex";
 export default {
   name: "Home",
-  components: { keyboard, textComponent, fingers, settingsInfo, menuComponent },
+  components: {
+    keyboard,
+    textComponent,
+    fingers,
+    speed,
+    settingsInfo,
+    menuComponent
+  },
   computed: {
     ...mapState(["showFingers"])
   }
