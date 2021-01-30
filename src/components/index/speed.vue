@@ -2,24 +2,27 @@
   <div class="speed-container">
     <div class="item">
       <label for="speed">速度</label>
-      <span>20</span>
+      <span>{{ speed }}</span>
     </div>
     <div class="item">
       <label for="error">错误</label>
-      <span>3</span>
+      <span>{{ error }}</span>
     </div>
     <div class="item">
       <label for="score">得分</label>
-      <span>688</span>
+      <span>{{ score }}</span>
     </div>
-    <button @click="$store.dispatch('setScore1')">action</button>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   data() {
     return {};
+  },
+  computed: {
+    ...mapState(["speed", "error", "score"])
   }
 };
 </script>

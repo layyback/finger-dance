@@ -12,12 +12,10 @@ export default new Vuex.Store({
     keyLetter: "E", // 预设重点练习按键
     showFingers: true, // 是否显示指位
     keyboardColor: "#87CEEB", // 键盘颜色
-    lastSpeed: 0,
-    lastErrorNum: 0,
-    lastStore: 0,
-    currentSpeed: 0,
-    currentErrorNum: 0,
-    currentScore: 0
+    startTime: "", // 开始时间
+    speed: 0,
+    error: 0,
+    score: 0
   },
   mutations: {
     onkeydown(state, val) {
@@ -38,16 +36,16 @@ export default new Vuex.Store({
     changeKeyboardColor(state, val) {
       state.keyboardColor = val;
     },
-    setScore(state) {
-      state.currentScore++;
+    saveError(state, num) {
+      state.error = num;
+    },
+    saveSpeed(state, speed) {
+      state.speed = speed;
+    },
+    saveScore(state, score) {
+      state.score = score;
     }
   },
-  actions: {
-    setScore1({ commit }) {
-      setInterval(() => {
-        commit("setScore");
-      }, 1000);
-    }
-  },
+  actions: {},
   modules: {}
 });
