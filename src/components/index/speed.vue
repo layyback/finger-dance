@@ -2,15 +2,21 @@
   <div class="speed-container">
     <div class="item">
       <label for="speed">速度</label>
-      <span>{{ speed }}</span>
+      <span>{{ speed }}</span
+      >&nbsp;&nbsp;
+      <span>{{ speedGrowth | percentage }}</span>
     </div>
     <div class="item">
       <label for="error">错误</label>
-      <span>{{ error }}</span>
+      <span>{{ error }}</span
+      >&nbsp;&nbsp;
+      <span>{{ errorGrowth }}</span>
     </div>
     <div class="item">
       <label for="score">得分</label>
-      <span>{{ score }}</span>
+      <span>{{ score }}</span
+      >&nbsp;&nbsp;
+      <span>{{ scoreGrowth | percentage }}</span>
     </div>
   </div>
 </template>
@@ -22,7 +28,20 @@ export default {
     return {};
   },
   computed: {
-    ...mapState(["speed", "error", "score"])
+    ...mapState([
+      "speed",
+      "speedGrowth",
+      "error",
+      "errorGrowth",
+      "score",
+      "scoreGrowth"
+    ])
+  },
+  filters: {
+    percentage(val) {
+      if (!val) return "";
+      return parseInt(val * 100) + "%";
+    }
   }
 };
 </script>

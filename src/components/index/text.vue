@@ -15,7 +15,7 @@ import { mapMutations, mapState } from "vuex";
 export default {
   data() {
     return {
-      length: 2,
+      length: 20,
       currentIndex: 0,
       text: "",
       errorNum: 0,

@@ -13,9 +13,12 @@ export default new Vuex.Store({
     showFingers: true, // 是否显示指位
     keyboardColor: "#87CEEB", // 键盘颜色
     startTime: "", // 开始时间
-    speed: 0,
-    error: 0,
-    score: 0
+    speed: "",
+    speedGrowth: "",
+    error: "",
+    errorGrowth: "",
+    score: "",
+    scoreGrowth: ""
   },
   mutations: {
     onkeydown(state, val) {
@@ -37,13 +40,22 @@ export default new Vuex.Store({
       state.keyboardColor = val;
     },
     saveError(state, num) {
+      const lastErrorNum = state.error;
       state.error = num;
+      if (lastErrorNum === "") return;
+      state.errorGrowth = num - lastErrorNum;
     },
     saveSpeed(state, speed) {
+      const lastSpeed = state.speed;
       state.speed = speed;
+      if (lastSpeed === "") return;
+      state.speedGrowth = (speed - lastSpeed) / lastSpeed;
     },
     saveScore(state, score) {
+      const lastScore = state.score;
       state.score = score;
+      if (lastScore === "") return;
+      state.scoreGrowth = (score - lastScore) / lastScore;
     }
   },
   actions: {},
