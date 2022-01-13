@@ -23,7 +23,12 @@ export default {
     };
   },
   computed: {
-    ...mapState(["currentLetter", "practiceLetters", "keyLetter"])
+    ...mapState([
+      "currentLetter",
+      "practiceLetters",
+      "keyLetter",
+      "letterLength"
+    ])
   },
   watch: {
     currentLetter(val) {
@@ -40,6 +45,9 @@ export default {
     },
     keyLetter() {
       this.createTextList();
+    },
+    letterLength() {
+      this.createTextList();
     }
   },
   created() {
@@ -49,7 +57,7 @@ export default {
     ...mapMutations(["saveError", "saveSpeed", "saveScore"]),
     createTextList() {
       const textModel = new CreateText(this.practiceLetters, this.keyLetter);
-      const arr = new Array(this.length).fill(0);
+      const arr = new Array(this.letterLength).fill(0);
       const res = arr.map(() => textModel.create());
       this.text = res.join(" ").toLowerCase();
       this.startTime = new Date();

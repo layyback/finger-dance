@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <div class="col-10">
+    <div class="col-12">
       <settings-info />
       <speed />
       <text-component />
@@ -9,9 +9,9 @@
         <fingers v-if="showFingers" class="fingers" />
       </div>
     </div>
-    <div class="col-2">
+    <!-- <div class="col-2">
       <menu-component />
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -21,7 +21,7 @@ import textComponent from "@/components/index/text.vue";
 import keyboard from "@/components/index/keyboard.vue";
 import fingers from "@/components/index/fingers.vue";
 import speed from "@/components/index/speed.vue";
-import menuComponent from "@/components/common/menu.vue";
+// import menuComponent from "@/components/common/menu.vue";
 import { mapState } from "vuex";
 export default {
   name: "Home",
@@ -31,7 +31,7 @@ export default {
     fingers,
     speed,
     settingsInfo,
-    menuComponent
+    // menuComponent
   },
   computed: {
     ...mapState(["showFingers"])

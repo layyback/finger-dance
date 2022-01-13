@@ -24,6 +24,17 @@
       ></el-slider>
     </div>
     <div class="setting-item">
+      <label for="practiceLetters">文本长度</label>
+      <el-slider
+        :min="0"
+        :max="20"
+        :show-tooltip="false"
+        :value="letterLength"
+        style="margin-top: -30px"
+        @input="changeLetterLength($event)"
+      ></el-slider>
+    </div>
+    <div class="setting-item">
       <label for="showFingers">显示指位</label>
       <el-switch
         :value="showFingers"
@@ -59,11 +70,16 @@ export default {
       "keyboardColor",
       "practiceLetters",
       "keyLetter",
+      "letterLength",
       "minRange"
     ])
   },
   methods: {
-    ...mapMutations(["changeFingersShow", "changeKeyboardColor"]),
+    ...mapMutations([
+      "changeFingersShow",
+      "changeKeyboardColor",
+      "setLetterLength"
+    ]),
     isKeyLetter(val) {
       if (!val) return false;
       return val === this.keyLetter;
@@ -71,6 +87,10 @@ export default {
     isPracticeLetter(val) {
       if (!val) return false;
       return this.practiceLetters.includes(val);
+    },
+    changeLetterLength(val) {
+      const min = this.minRange;
+      this.setLetterLength(Math.max(min, val));
     },
     // 滑动设置预设练习按键范围
     changePracticeLetters(val) {
@@ -115,6 +135,7 @@ export default {
     color: @default-color;
     margin-left: 0.5em;
     text-align: center;
+    cursor: pointer;
     &.practiceLetter {
       border-color: @practice-color;
       color: @practice-color;
