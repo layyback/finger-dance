@@ -16,6 +16,7 @@ ol {
 body {
   padding: 100px 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 .col-2 {
   width: 2/12 * 100%;
