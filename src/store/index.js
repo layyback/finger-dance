@@ -10,7 +10,7 @@ export default new Vuex.Store({
     practiceLetters: "ENITRL", // 预设练习按键组
     minRange: 4, // 预设按键组最小长度
     keyLetter: "E", // 预设重点练习按键
-    letterLength: 4,
+    letterLength: 20,
     showFingers: true, // 是否显示指位
     keyboardColor: "#87CEEB", // 键盘颜色
     startTime: "", // 开始时间

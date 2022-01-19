@@ -34,7 +34,7 @@ export default {
 <style lang="less" scoped>
 .keyboard {
   width: 722px;
-  margin: 80px auto;
+  margin: 40px auto;
   padding: 12px;
   background: @keyboard-bg-color;
   border-radius: 10px;

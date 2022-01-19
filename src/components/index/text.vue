@@ -118,7 +118,7 @@ export default {
 
 .text {
   width: 700px;
-  margin: 80px auto;
+  margin: 40px auto;
   text-align: left;
   span {
     font-family: Ubuntu Mono, Lucida Console, monospace;
