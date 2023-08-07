@@ -9,6 +9,20 @@
         <fingers v-if="showFingers" class="fingers" />
       </div>
     </div>
+
+    <ul class="footer">
+      <li>
+        <a
+          href="https://beian.miit.gov.cn/"
+          target="_blank"
+          class="mt-8 text-sm text-gray-400 md:mt-0 md:order-1"
+          >京ICP备2023013430号-2</a
+        >
+      </li>
+      <li class="mt-2 text-sm text-gray-400 md:order-1">
+        &copy; 2023 layyback. All rights reserved.
+      </li>
+    </ul>
     <!-- <div class="col-2">
       <menu-component />
     </div> -->
@@ -30,7 +44,7 @@ export default {
     textComponent,
     fingers,
     speed,
-    settingsInfo,
+    settingsInfo
     // menuComponent
   },
   computed: {
@@ -42,6 +56,8 @@ export default {
 <style lang="less" scoped>
 .index {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   .keyboard-container {
     position: relative;
@@ -54,5 +70,11 @@ export default {
       width: 663px;
     }
   }
+}
+.footer {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>
